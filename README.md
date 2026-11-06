@@ -2,14 +2,11 @@
 
 [English](#english) · 繁體中文
 
-工作區放在 E 盤，但每個任務還是會在 C 盤自己開產物目錄（`C:\w1`、`C:\hs`…逆向 APK 的 `dec/in/out/pack`），
-一次 1–4 GB，12 個 App 累積 27 GB，而且沒有人記得清。
-
+AI 在 shell 裡隨手 `mkdir` 出來的野生工作目錄，路徑不可預測、任務結束也沒有人記得清。
 本插件負責「不再發生」，而不是「事後打掃」。
 
-> 為什麼不是「掃描清理工具」：真正吃空間的從來不是 DSH 自己的緩存（全部加起來不到 3 MB），
-> 而是 AI 在 shell 裡自己 `mkdir` 出來的野生工作目錄。那類目錄**路徑不可預測**，
-> 事後只能推斷；所以主力放在**工具層硬攔**，掃描只當兜底與帳本。
+> 也因此它不是掃描清理工具：DSH 自己的緩存全部加起來不到 3 MB，真正吃空間的是那種
+> **路徑不可預測**的工作目錄，事後只能推斷。所以主力放在**工具層硬攔**，掃描只當兜底與帳本。
 
 ## 四層
 
@@ -113,9 +110,9 @@ cp -r dsh-workspace-mgr <profile>/node_modules/   # 或用 junction / symlink
 
 **dsh-workspace-mgr — a Workspace Guard for DeepSeek Harness.**
 
-Your workspace lives on `E:`, yet every task still creates its own artifact folder on `C:`
-(`C:\w1`, `C:\hs`, apktool's `dec/in/out/pack`) — 1–4 GB each, 27 GB over 12 apps, and nobody
-remembers to clean up. This plugin makes it stop happening instead of sweeping afterwards.
+An agent's shell habit is to `mkdir` its own artifact folder wherever it likes: the path is
+unpredictable, and nobody remembers to clean it up when the task ends. This plugin makes that stop
+happening, instead of sweeping afterwards.
 
 - **Gate** (`tools/pre-execute`): denies *new* paths on a protected drive; existing paths stay readable.
   The denial message hands the agent its exact per-session scratch directory.
