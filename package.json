@@ -1,0 +1,49 @@
+{
+  "name": "dsh-workspace-mgr",
+  "version": "0.1.0",
+  "description": "工作區守衛：攔截落在 C 盤的新產物路徑、為每個會話提供 scratch 落點、掃描並標記 C 盤可疑產物目錄（只標記，不自動刪）。",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "workspace",
+    "disk",
+    "cleanup",
+    "guard",
+    "c-drive"
+  ],
+  "author": "ADEN",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  }
+}

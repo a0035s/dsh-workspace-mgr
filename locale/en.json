@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace Guard",
+    "description": "Blocks new artifact paths on the protected drive, gives every session a scratch directory, and indexes suspicious C: artifact folders for review (marks only, never auto-deletes)."
+  }
+}

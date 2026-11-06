@@ -1,0 +1,12 @@
+# 依賴與產物
+node_modules/
+*.log
+*.tmp
+
+# 本插件自己的執行期資料（索引 / 審計），由執行時生成
+index.json
+audit.jsonl
+
+# 系統
+Thumbs.db
+.DS_Store

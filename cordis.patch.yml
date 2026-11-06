@@ -1,0 +1,14 @@
+# dsh-workspace-mgr bundle patch：向 profile 層棧插入本插件。
+# 同一行同時掛載 host 半（index.js：閘門 + scratch + 索引 + 路由）
+# 與 browser 半（client.js：側欄入口 + 面板）。
+- insert:
+    - id: workspace-mgr
+      name: 'dsh-workspace-mgr'
+      config:
+        gate: true
+        protectDrives: ['C']
+        # scratchRoot: 'E:\dsh\scratch'   # 預設 $DSH_HOME/scratch
+        autoCleanScratch: false           # 依你要求：預設不自動收
+        scratchTtlHours: 168
+        scanDepth: 1
+        # scanRoots: ['C:\']              # 預設掃 C 盤根目錄一層
